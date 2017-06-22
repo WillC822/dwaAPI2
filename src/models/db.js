@@ -1,8 +1,9 @@
 const Sequelize = require('sequelize');
+const logger = require('./tools/logger');
 
 //instantiates sequlize module that allows acces to mysql db
 require ('dotenv').config();
-const sequlize = new Sequelize(process.env).DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
     host: process.env.DB_HOST,
     dialect: process.env.DB_SCHEMA,
     port: process.env.DB_PORT,
@@ -26,10 +27,11 @@ const url = sequelize.define('url', {
     type:Sequelize.STRING,
   }
 
-}); defines table
+}); //defines tables
 
 //sync db with db.js
-sequelize.sync();
+  sequelize.sync();
+  logger.debug('sequelize db synced.')
 
 exports.sequelize = sequelize;
-export.url = url;
+exports.crudDB = crudDB
