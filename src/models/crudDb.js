@@ -3,6 +3,7 @@ const db = require('/db');
 //create
 exports.create =  (payload,err,success) => {
   db.url.create(payload).then(success).catch(err);
+  logger.debug('Create record in db | models/crudDB.js');
 };
 
 
