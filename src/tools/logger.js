@@ -3,7 +3,7 @@ winston.emitErrs = true;
 var logger = new winston.Logger();
 var debugKey = process.env['DEBUG'];
 
-
+/
 if (debugKey == 'true') {
   logger.add(winston.tranports.Console, {
     level: 'debug',
@@ -18,6 +18,7 @@ if (debugKey == 'true') {
     filename: '../debuglog.log',
     maxsize: 5242880, //5MB
     maxFiles: 5,
+    timestamp:true,
     colorize: true });
   console.log('App version:' + process.env['Version'] )
 }

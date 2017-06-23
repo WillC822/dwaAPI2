@@ -1,5 +1,5 @@
-//const url = require('../src/models/db.js');
-
+const url = require('../src/models/db.js');
+const app = require('../src/server.js')
 
 module.exports = (express) => {
   const router = express.Router();
