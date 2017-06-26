@@ -1,11 +1,11 @@
 const url = require('../src/models/db.js');
-const app = require('../src/server.js')
+const app = express();
 
 module.exports = (express) => {
   const router = express.Router();
 
   //Create
-  router.post('urls', (req,res) => {
+  app.post('urls', (req,res) => {
     url.create(req.body, (err) => {
             res.status(500).json(err);
         }, (data) => {
@@ -13,7 +13,7 @@ module.exports = (express) => {
         })
     });
   //Read All
-  router.get('/urls', (req, res) => {
+  app.get('/urls', (req, res) => {
       user.findAll( (err) => {
           res.status(500).json(err);
       }, (data) => {
@@ -22,7 +22,7 @@ module.exports = (express) => {
   });
 
   //Read One(find only one user)
-  router.get('/urls/:id', (req, res) => {
+  app.get('/urls/:id', (req, res) => {
       req.body.id = req.params.id;
       user.findAll(req.body, (err) => {
           res.status(500).json(err);
@@ -32,7 +32,7 @@ module.exports = (express) => {
   });
 
   //Update
-  router.post('/urls/:id', (req, res) => {
+  app.post('/urls/:id', (req, res) => {
       req.body.id = req.params.id;
       user.update(req.body, (err) => {
           res.status(500).json(err);

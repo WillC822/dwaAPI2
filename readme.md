@@ -22,6 +22,6 @@
 * POST    localhost/api/v2/urls/:id Update URL based on :id
 * DELETE  localhost/api/v2/urls/:id Delete URL based on :id
 
-## Usage
+### Usage
 * To enable debugging set DEBUG=true in the .env file - log will display via terminal window
 * To disable debugging set DEBUG=false in the .env file - log will save to .debugLog.log

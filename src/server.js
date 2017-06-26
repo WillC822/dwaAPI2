@@ -1,10 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const debug = require('debug');
-const app = express();
 const dotenv = require('dotenv').config();
 const logger = require('./tools/logger');
 
+const app = express();
 
 //config port
 const port = process.env.DB_PORT || 3000;
@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({
     extended:true,
 }));
 
+console.log('i am working')
 //attaching routes
 // app.use('/', (req, res) => {
 //   res.json({healthy: 'true'})
@@ -28,7 +29,7 @@ app.use(bodyParser.urlencoded({
 //Attaching routes
 app.use('/api/v1', require('../routes/api.js')(express));
 app.use('/api/v2', require('../routes/apiD.js')(express));
-
+console.log('i am working2')
 //sets up server, console logs port
 const server = app.listen(port, () => {
   console.log('Server active on', + port);

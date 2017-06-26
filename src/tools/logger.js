@@ -3,7 +3,7 @@ winston.emitErrs = true;
 var logger = new winston.Logger();
 var debugKey = process.env['DEBUG'];
 
-/
+
 if (debugKey == 'true') {
   logger.add(winston.tranports.Console, {
     level: 'debug',
